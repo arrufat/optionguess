@@ -14,8 +14,8 @@ public class Main : Object {
 
 	private const OptionEntry[] options = {
 		{ "version", 0, 0, OptionArg.NONE, ref display_version, "Display version number", null },
-		{ "test", 't', 0, OptionArg.INT, ref test, "Parse an integer", "INT" },
-		{ "file", 'i', 0, OptionArg.FILENAME, ref file, "Parse a file name", "FILENAME" },
+		{ "int", 'i', 0, OptionArg.INT, ref test, "Parse an integer", "INT" },
+		{ "file", 'n', 0, OptionArg.FILENAME, ref file, "Parse a file name", "FILENAME" },
 		{ "fast", 'f', 0, OptionArg.NONE, ref fast, "Set fast mode", null },
 		{ "slow", 's', 0, OptionArg.NONE, ref slow, "Set slow mode", null },
 		{ null } // list terminator
