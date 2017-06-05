@@ -1,0 +1,4 @@
+[wrap-git]
+directory=optionguess
+url=https://github.com/arrufat/optionguess.git
+revision=head

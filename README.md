@@ -19,6 +19,17 @@ To use it, simply add this lines when catching the error from [OptionEntry][opti
 
 where `options` is an `OptionEntry[]`, declared somewhere above this snippet of code.
 
+To use it in your code, simply add these lines to your `meson.build`:
+
+``` meson
+
+optionguess = subproject('optionguess')
+optionguess_dep = optionguess.get_variable('optionguess_dep')
+```
+
+Then, add `optionguess_dep` to your dependencies array.
+Finally, copy the [`optionguess.wrap`][wrap] to your `subprojects` folder.
+
 You can play with the provided example:
 
 ``` bash
@@ -34,3 +45,4 @@ ninja -C build
 [optionentry]:https://valadoc.org/glib-2.0/GLib.OptionEntry.html
 [rust]:https://www.rust-lang.org/
 [vala]:https://wiki.gnome.org/Projects/Vala
+[wrap]:https://raw.githubusercontent.com/arrufat/optionguess/master/optionguess.wrap
