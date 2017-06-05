@@ -1,6 +1,6 @@
 # Option Guess
 
-Option Guess is a library that hooks on the [GLib.OptionEntry][optionentry] and displays colourful messages.
+Option Guess is a library that hooks on the [GLib.OptionEntry][optionentry] and displays colourful messages for command line applications written in [Vala][vala].
 
 Moreover, if the user has specified an incorrect option, it will suggest the closest option available.
 I have wanted this feature since I saw the amazing command line parser for [Rust][rust], [clap][clap].
@@ -30,6 +30,7 @@ ninja -C build
 ./build/options_ex --int i2  # incorrect, will display error
 ```
 
+[clap]:https://clap.rs/
 [optionentry]:https://valadoc.org/glib-2.0/GLib.OptionEntry.html
 [rust]:https://www.rust-lang.org/
-[clap]:https://clap.rs/
+[vala]:https://wiki.gnome.org/Projects/Vala
