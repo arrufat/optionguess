@@ -25,9 +25,8 @@ pkg = import('pkgconfig')
 pkg.generate(
     libraries: liboptionguess,
     version: meson.project_version(),
-    name: 'optionguesser',
-    description: 'Guess the closest command line option',
-    )
+    name: 'optionguess',
+    description: 'Guess the closest command line option')
 
 if get_option('enable-examples')
     options_ex = executable('options_ex',
