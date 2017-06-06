@@ -29,7 +29,9 @@ namespace OG {
 		private List<string> compute_possibilities () {
 			var possibilities = new List<string> ();
 			MatchInfo match_info = null;
-			if (this.error is OptionError.UNKNOWN_OPTION && regex_long.match (this.error.message, 0, out match_info)) {
+			if (this.error is OptionError.UNKNOWN_OPTION &&
+				(regex_long.match (this.error.message, 0, out match_info) ||
+				 regex_shorts.match (this.error.message, 0, out match_info))) {
 
 				/* get the passed option */
 				this.option = match_info.fetch (1);
