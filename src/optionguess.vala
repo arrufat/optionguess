@@ -83,7 +83,9 @@ namespace OG {
 			stdout.printf (FRED + "Error" + RESET + ": %s" + "\n", message);
 			if (possibilities.length () > 0) {
 				var closest = possibilities.nth_data (0).split(" ")[0];
-				stdout.printf ("\tDid you mean " + FGRN + "--" + closest + RESET + "?\n", closest);
+				if (levenshtein_distance (this.option, closest) < closest.length) {
+					stdout.printf ("\tDid you mean " + FGRN + "--" + closest + RESET + "?\n", closest);
+				}
 			}
 			stdout.printf ("\nFor more information try " + FGRN + "--help" + RESET + "\n");
 		}
