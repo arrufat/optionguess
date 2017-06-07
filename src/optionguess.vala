@@ -83,7 +83,9 @@ namespace OG {
 			stdout.printf (FRED + "Error" + RESET + ": %s" + "\n", message);
 			if (possibilities.length () > 0) {
 				var closest = possibilities.nth_data (0).split(" ")[0];
-				if (levenshtein_distance (this.option, closest) < closest.length) {
+				var distance = levenshtein_distance (this.option, closest);
+				var threshold = (closest.length + this.option.length) / 2;
+				if (distance < closest.length || (closest in this.option && distance < threshold) || this.option.has_prefix ("--" + closest)) {
 					stdout.printf ("\tDid you mean " + FGRN + "--" + closest + RESET + "?\n", closest);
 				}
 			}
