@@ -6,7 +6,7 @@ using TermColors;
 namespace OG {
 	public class OptionGuess {
 		private string option;
-		private Array<OptionEntry?> opt_array;
+		private string[] opt_array;
 		private OptionError error;
 		private Regex regex_long;
 		private Regex regex_short;
@@ -14,6 +14,7 @@ namespace OG {
 		private Regex regex_quotes;
 
 		public OptionGuess (OptionEntry[] options, OptionError error) {
+			this.opt_array = {};
 			this.add_options (options);
 			this.error = error;
 			try {
@@ -27,7 +28,11 @@ namespace OG {
 		}
 
 		public void add_options (OptionEntry[] options) {
-			this.opt_array.append_vals (options, options.length);
+			foreach (var o in options) {
+				if (o.long_name != null) {
+					opt_array += o.long_name;
+				}
+			}
 		}
 
 		private List<string> compute_possibilities () {
@@ -41,14 +46,9 @@ namespace OG {
 				this.option = match_info.fetch (1);
 
 				/* append each available option with its distance to the passed option */
-				for (var i = 0; i < this.opt_array.length; i++) {
-					var options = (OptionEntry[]) opt_array.index (i);
-					foreach (var o in options) {
-						if (o.long_name != null) {
-							var ldist = levenshtein_distance (o.long_name, option);
-							possibilities.append (o.long_name + " " + ldist.to_string ());
-						}
-					}
+				foreach (var o in opt_array) {
+					var ldist = levenshtein_distance (o, option);
+					possibilities.append (o + " " + ldist.to_string ());
 				}
 				/* always append help at the end */
 				var hdist = levenshtein_distance ("help", option);
