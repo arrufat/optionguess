@@ -33,7 +33,7 @@ Finally, copy the [`optionguess.wrap`][wrap] to your `subprojects` folder.
 You can play with the provided example:
 
 ``` bash
-meson build -Dwith-examples=true
+meson build -Dwith_examples=true
 ninja -C build
 ./build/options_ex --help    # correct
 ./build/options_ex --hlp     # incorrect, will show suggestion
