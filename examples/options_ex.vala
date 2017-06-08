@@ -1,4 +1,5 @@
 // sources: src/optionguess.vala
+// sources: src/termcolors.vala
 
 using GLib;
 using OG;
