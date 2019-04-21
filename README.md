@@ -1,11 +1,11 @@
 # Option Guess
 
-Option Guess is a library that hooks on the [GLib.OptionEntry][optionentry] and displays colourful messages for command line applications written in [Vala][vala].
+Option Guess is a library that hooks into the [GLib.OptionEntry][optionentry] and displays colourful messages for command line applications written in [Vala][vala].
 
 Moreover, if the user has specified an incorrect option, it will suggest the closest option available.
 I have wanted this feature since I saw the amazing command line parser for [Rust][rust], [clap][clap].
 
-To use it, simply add this lines when catching the error from [OptionEntry][optionentry]:
+To use it, simply add these lines when catching the error from [OptionEntry][optionentry]:
 
 ``` vala
 ...
